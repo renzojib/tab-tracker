@@ -9,10 +9,10 @@
     </v-toolbar-items>-->
     <v-spacer></v-spacer>
     <v-toolbar-items>
-      <v-btn text @click="navigateTo({name: 'login'})">
+      <v-btn text v-if="!$store.state.isUserLoggedIn" @click="navigateTo({name: 'login'})">
         Login
       </v-btn>
-      <v-btn text @click="navigateTo({name: 'register'})">
+      <v-btn text v-if="!$store.state.isUserLoggedIn" @click="navigateTo({name: 'register'})">
         Sign Up
       </v-btn>
     </v-toolbar-items>
@@ -24,7 +24,6 @@ export default {
   methods: {
     navigateTo (route) {
       this.$router.push(route)
-      console.log(this.$store)
     }
   }
 }
